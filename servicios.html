@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Servicios de Color Grafía - Uniformes, camisetas, llaveros, mugs, placas metálicas y más">
+    <title>Servicios - Color Grafía | Diseño y Personalización</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           VARIABLES DE COLOR
+           ============================================ */
+        :root {
+            --color-primary: #c2185b;
+            --color-secondary: #7b1fa2;
+            --color-accent: #ff4081;
+            --color-dark: #4a148c;
+            --color-light: #f3e5f5;
+        }
+
+        /* ============================================
+           ESTILOS GENERALES
+           ============================================ */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            padding-top: 76px;
+        }
+
+        /* ============================================
+           NAVBAR
+           ============================================ */
+        .navbar-custom {
+            background: rgba(123, 31, 162, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #ffffff !important;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            padding: 8px 20px !important;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ============================================
+           HEADER DE PÁGINA
+           ============================================ */
+        .page-header {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        /* Círculos decorativos */
+        .circle-decoration {
+            position: absolute;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-header p {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================
+           BOTÓN DE WHATSAPP FLOTANTE
+           ============================================ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.6);
+            z-index: 1000;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #20ba5a;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* ============================================
+           TARJETAS DE SERVICIOS - MEJORADAS
+           ============================================ */
+        .service-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            text-align: center;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(194, 24, 91, 0.2);
+            border-color: var(--color-primary);
+        }
+
+        .service-icon-wrapper {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transition: all 0.5s ease;
+            box-shadow: 0 8px 25px rgba(194, 24, 91, 0.3);
+            position: relative;
+        }
+
+        .service-icon-wrapper::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
+            border-radius: 30px;
+            top: 0;
+            left: 0;
+        }
+
+        .service-card:hover .service-icon-wrapper {
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: 0 15px 40px rgba(194, 24, 91, 0.5);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card h3 {
+            color: var(--color-secondary);
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .service-features {
+            text-align: left;
+            margin-bottom: 30px;
+            background: var(--color-light);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .service-features li {
+            list-style: none;
+            margin-bottom: 12px;
+            color: #555;
+            padding-left: 0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-features li i {
+            color: #28a745;
+            margin-right: 12px;
+            font-size: 1.2rem;
+            min-width: 20px;
+        }
+
+        /* ============================================
+           BOTONES MEJORADOS
+           ============================================ */
+        .btn-colorgrafia {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            border: none;
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.05rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 20px rgba(194, 24, 91, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-colorgrafia::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-colorgrafia:hover::before {
+            left: 100%;
+        }
+
+        .btn-colorgrafia:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(194, 24, 91, 0.6);
+            color: white;
+        }
+
+        .btn-colorgrafia i {
+            margin-right: 8px;
+        }
+
+        /* ============================================
+           SECCIONES MEJORADAS
+           ============================================ */
+        .services-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            border-radius: 5px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: var(--color-secondary);
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-top: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 70px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           BADGE DE PRECIO/INFO MEJORADO
+           ============================================ */
+        .price-badge {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(194, 24, 91, 0.3);
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 4px 15px rgba(194, 24, 91, 0.3); }
+            50% { box-shadow: 0 4px 25px rgba(194, 24, 91, 0.6); }
+        }
+
+        /* ============================================
+           SECCIÓN DESTACADA MEJORADA
+           ============================================ */
+        .highlight-section {
+            background: linear-gradient(135deg, var(--color-light) 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-section::after {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(194, 24, 91, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer-main {
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 60px 0 0;
+            margin-top: 100px;
+        }
+
+        .footer-main h5 {
+            color: var(--color-accent);
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .footer-link:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 45px;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--color-accent);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px 0;
+            margin-top: 50px;
+        }
+
+        .certificate-badge {
+            display: inline-block;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .service-card {
+                margin-bottom: 30px;
+            }
+
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+
+            .services-section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* ============================================
+           ANIMACIONES
+           ============================================ */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Efecto de hover en toda la card */
+        .service-card {
+            cursor: pointer;
+        }
+
+        /* Contador animado */
+        .stats-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         NAVBAR
+         ============================================ -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-palette-fill"></i> Color Grafía
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house-fill"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="servicios.html"><i class="bi bi-briefcase-fill"></i> Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalogo.html"><i class="bi bi-book-fill"></i> Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html"><i class="bi bi-images"></i> Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html"><i class="bi bi-envelope-fill"></i> Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         BOTÓN FLOTANTE DE WHATSAPP
+         ============================================ -->
+    <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20quiero%20cotizar%20un%20servicio" 
+       class="whatsapp-float" 
+       target="_blank"
+       title="Cotiza por WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- ============================================
+         HEADER DE LA PÁGINA
+         ============================================ -->
+    <div class="page-header">
+        <!-- Círculos decorativos -->
+        <div class="circle-decoration" style="width: 80px; height: 80px; top: 15%; left: 8%;"></div>
+        <div class="circle-decoration" style="width: 40px; height: 40px; top: 12%; left: 35%; animation-delay: 1s;"></div>
+        <div class="circle-decoration" style="width: 15px; height: 15px; top: 8%; right: 8%; background: white;"></div>
+        <div class="circle-decoration" style="width: 50px; height: 50px; top: 20%; right: 15%; animation-delay: 2s;"></div>
+        <div class="circle-decoration" style="width: 60px; height: 60px; bottom: 25%; left: 15%; animation-delay: 3s;"></div>
+
+        <div class="container">
+            <h1><i class="bi bi-briefcase-fill"></i> Nuestros Servicios</h1>
+            <p>Diseño, personalización y mucho más para tu empresa o evento</p>
+        </div>
+    </div>
+
+    <!-- ============================================
+         SECCIÓN: PRODUCTOS TEXTILES
+         ============================================ -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Productos Textiles Personalizados</h2>
+            <p class="section-subtitle">Camisetas, uniformes y más con diseños únicos y estampados de alta calidad</p>
+
+            <div class="row g-4">
+                <!-- Uniformes Corporativos -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-icon-wrapper">
+                            <i class="bi bi-person-badge service-icon"></i>
+                        </div>
+                        <h3>Uniformes Corporativos</h3>
+                        <p>Diseños profesionales para empresas, restaurantes y hoteles</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Diseño personalizado</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Telas premium</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Bordado incluido</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Logo de tu empresa</li>
+                        </ul>
+                        <span class="price-badge">Desde pedidos pequeños</span>
+                        <div class="mt-3">
+                            <a href="contacto.html" class="btn btn-colorgrafia">
+                                <i class="bi bi-cart-plus"></i> Cotizar Ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Camisetas Personalizadas -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in" style="animation-delay: 0.1s;">
+                        <div class="service-icon-wrapper">
+                            <i class="bi bi-dice-5 service-icon"></i>
+                        </div>
+                        <h3>Camisetas Personalizadas</h3>
+                        <p>Perfectas para eventos, equipos, familias o promoción</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Estampado HD</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Algodón 100%</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Sin mínimo de pedido</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Todas las tallas</li>
+                        </ul>
+                        <span class="price-badge">Excelentes precios</span>
+                        <div class="mt-3">
+                            <a href="contacto.html" class="btn btn-colorgrafia">
+                                <i class="bi bi-cart-plus"></i> Cotizar Ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estampados Profesionales -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in" style="animation-delay: 0.2s;">
+                        <div class="service-icon-wrapper">
+                            <i class="bi bi-printer service-icon"></i>
+                        </div>
+                        <h3>Estampados Profesionales</h3>
+                        <p>Técnicas de impresión de última generación</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Serigrafía</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Sublimación</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Vinil textil</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Transfer digital</li>
+                        </ul>
+                        <span class="price-badge">Alta durabilidad</span>
+                        <div class="mt-3">
+                            <a href="contacto.html" class="btn btn-colorgrafia">
+                                <i class="bi bi-cart-plus"></i> Cotizar Ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN: DISEÑO GRÁFICO
+         ============================================ -->
+    <section class="services-section highlight-section">
+        <div class="container">
+            <h2 class="section-title">Diseño Gráfico Profesional</h2>
+            <p class="section-subtitle">Creamos la identidad visual perfecta para tu marca o proyecto</p>
+
+            <div class="row g-4">
+                <!-- Diseño de Logos -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-icon-wrapper">
+                            <i class="bi bi-brush service-icon"></i>
+                        </div>
+                        <h3>Diseño de Logos</h3>
+                        <p>Identidad corporativa única y memorable</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle-fill"></i> 3 propuestas de diseño</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Revisiones incluidas</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Archivos vectoriales</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Manual de marca</li>
+                        </ul>
+                        <span class="price-badge">100% Original</span>
+                        <div class="mt-3">
+                            <a href="contacto.html" class="btn btn-colorgrafia">
+                                <i class="bi bi-cart-plus"></i> Cotizar Ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diseños Personalizados -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in" style="animation-delay: 0.1s;">
+                        <div class="service-icon-wrapper">
+                            <i class="bi bi-palette service-icon"></i>
+                        </div>
+                        <h3>Diseños Personalizados</h3>
+                        <p>Para cualquier producto o necesidad gráfica</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Diseño para camisetas</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Diseño para productos</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Ilustraciones custom</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Adaptación a tu idea</li>
+                        </ul>
+                        <span class="price-badge">Creatividad sin límites</span>
+                        <div class="mt-3">
+                            <a href="contacto.html" class="btn btn-colorgrafia">
+                                <i class="bi bi-cart-plus"></i> Cotizar Ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material Publicitario -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in" style="animation-delay: 0.2s;">
+                        <div class="service-icon-wrapper">
+                            <i class="bi bi-megaphone service-icon"></i>
+                        </div>
+                        <h3>Material Publicitario</h3>
+                        <p>Todo lo necesario para promocionar tu negocio</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Flyers y brochures</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Tarjetas presentación</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Volantes</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Catálogos</li>
+                        </ul>
+                        <span class="price-badge">Impresión incluida</span>
+                        <div class="mt-3">
+                            <a href="contacto.html" class="btn btn-colorgrafia">
+                                <i class="bi bi-cart-plus"></i> Cotizar Ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN: IMPRESIÓN GRAN FORMATO
+         ============================================ -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Impresión en Gran Formato</h2>
+            <p class="section-subtitle">Pancartas, banners y publicidad exterior de alto impacto</p>
+
+            <div class="row g-4">
+                <!-- Pancartas y Banners -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-icon-wrapper">
+                            <i class="bi bi-file-earmark-image service-icon"></i>
+                        </div>
+                        <h3>Pancartas & Banners</h3>
+                        <p>Impresión de alta calidad en gran formato</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Lona resistente</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Todos los tamaños
+                            <li><i class="bi bi-check-circle-fill"></i> Para exterior/interior</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Instalación opcional</li>
+                        </ul>
+                        <span class="price-badge">Gran durabilidad</span>
+                        <div class="mt-3">
+                            <a href="contacto.html" class="btn btn-colorgrafia">
+                                <i class="bi bi-cart-plus"></i> Cotizar Ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cuadros Personalizados -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in" style="animation-delay: 0.1s;">
+                        <div class="service-icon-wrapper">
+                            <i class="bi bi-image service-icon"></i>
+                        </div>
+                        <h3>Cuadros Personalizados</h3>
+                        <p>Impresión en canvas y materiales premium</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Canvas de calidad</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Bastidor incluido</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Fotos personales</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Diseños artísticos</li>
+                        </ul>
+                        <span class="price-badge">Regalo perfecto</span>
+                        <div class="mt-3">
+                            <a href="contacto.html" class="btn btn-colorgrafia">
+                                <i class="bi bi-cart-plus"></i> Cotizar Ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placas Metálicas -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in" style="animation-delay: 0.2s;">
+                        <div class="service-icon-wrapper">
+                            <i class="bi bi-shield-fill-check service-icon"></i>
+                        </div>
+                        <h3>Placas Metálicas</h3>
+                        <p>Placas personalizadas para cualquier uso</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Aluminio/acero</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Grabado láser</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Señalización</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Reconocimientos</li>
+                        </ul>
+                        <span class="price-badge">Acabado profesional</span>
+                        <div class="mt-3">
+                            <a href="contacto.html" class="btn btn-colorgrafia">
+                                <i class="bi bi-cart-plus"></i> Cotizar Ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN: PRODUCTOS PROMOCIONALES
+         ============================================ -->
+    <section class="services-section highlight-section">
+        <div class="container">
+            <h2 class="section-title">Productos Promocionales y Detalles</h2>
+            <p class="section-subtitle">Artículos personalizados perfectos para regalos corporativos y eventos</p>
+
+            <div class="row g-4">
+                <!-- Mugs/Tazas -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-icon-wrapper">
+                            <i class="bi bi-cup-hot service-icon"></i>
+                        </div>
+                        <h3>Mugs Personalizados</h3>
+                        <p>Tazas con sublimación de alta calidad</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Cerámica premium</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Diseños full color</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Fotos y logos</li>
+                        </ul>
+                        <span class="price-badge">Desde $8.000</span>
+                        <div class="mt-3">
+                            <a href="contacto.html" class="btn btn-colorgrafia btn-sm">
+                                <i class="bi bi-cart-plus"></i> Cotizar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Llaveros -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card fade-in" style="animation-delay: 0.1s;">
+                        <div class="service-icon-wrapper">
+                            <i class="bi bi-key service-icon"></i>
+                        </div>
+                        <h3>Llaveros</h3>
+                        <p>Diversos materiales y técnicas</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Acrílico</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Metal</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Sublimados</li>
+                        </ul>
+                        <span class="price-badge">Desde $2.500</span>
+                        <div class="mt-3">
+                            <a href="contacto.html" class="btn btn-colorgrafia btn-sm">
+                                <i class="bi bi-cart-plus"></i> Cotizar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gorras -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card fade-in" style="animation-delay: 0.2s;">
+                        <div class="service-icon-wrapper">
+                            <i class="bi bi-triangle service-icon"></i>
+                        </div>
+                        <h3>Gorras</h3>
+                        <p>Bordadas y estampadas</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Bordado 3D</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Varios estilos</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Colores variados</li>
+                        </ul>
+                        <span class="price-badge">Desde $18.000</span>
+                        <div class="mt-3">
+                            <a href="contacto.html" class="btn btn-colorgrafia btn-sm">
+                                <i class="bi bi-cart-plus"></i> Cotizar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bolsas Personalizadas -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card fade-in" style="animation-delay: 0.3s;">
+                        <div class="service-icon-wrapper">
+                            <i class="bi bi-bag service-icon"></i>
+                        </div>
+                        <h3>Bolsas</h3>
+                        <p>Ecológicas y personalizadas</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Tela resistente</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Estampado duradero</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Eco-friendly</li>
+                        </ul>
+                        <span class="price-badge">Consultar precio</span>
+                        <div class="mt-3">
+                            <a href="contacto.html" class="btn btn-colorgrafia btn-sm">
+                                <i class="bi bi-cart-plus"></i> Cotizar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN: ¿POR QUÉ ELEGIRNOS?
+         ============================================ -->
+    <section class="services-section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">¿Por Qué Elegir Color Grafía?</h2>
+            <p class="section-subtitle">Más de 10 años de experiencia respaldan nuestro trabajo de calidad</p>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center fade-in">
+                        <div class="service-icon-wrapper mx-auto" style="width: 90px; height: 90px;">
+                            <i class="bi bi-award-fill service-icon" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h4 class="mt-3 mb-2" style="color: var(--color-secondary); font-weight: bold;">Calidad Garantizada</h4>
+                        <p class="text-muted">Materiales premium y técnicas profesionales</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center fade-in" style="animation-delay: 0.1s;">
+                        <div class="service-icon-wrapper mx-auto" style="width: 90px; height: 90px;">
+                            <i class="bi bi-lightning-fill service-icon" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h4 class="mt-3 mb-2" style="color: var(--color-secondary); font-weight: bold;">Entrega Rápida</h4>
+                        <p class="text-muted">Cumplimos tiempos sin comprometer calidad</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center fade-in" style="animation-delay: 0.2s;">
+                        <div class="service-icon-wrapper mx-auto" style="width: 90px; height: 90px;">
+                            <i class="bi bi-people-fill service-icon" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h4 class="mt-3 mb-2" style="color: var(--color-secondary); font-weight: bold;">+1500 Clientes</h4>
+                        <p class="text-muted">Satisfechos con nuestros productos</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center fade-in" style="animation-delay: 0.3s;">
+                        <div class="service-icon-wrapper mx-auto" style="width: 90px; height: 90px;">
+                            <i class="bi bi-headset service-icon" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h4 class="mt-3 mb-2" style="color: var(--color-secondary); font-weight: bold;">Asesoría Gratis</h4>
+                        <p class="text-muted">Te ayudamos en todo el proceso</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Llamada a la acción -->
+            <div class="text-center mt-5 pt-4">
+                <h3 class="mb-4" style="color: var(--color-secondary); font-weight: bold;">¿Listo para comenzar tu proyecto?</h3>
+                <a href="contacto.html" class="btn btn-colorgrafia btn-lg me-3 mb-3">
+                    <i class="bi bi-envelope-fill"></i> Solicitar Cotización
+                </a>
+                <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20quiero%20información%20sobre%20servicios" 
+                   class="btn btn-lg mb-3" 
+                   target="_blank"
+                   style="background: #25d366; color: white; padding: 14px 35px; border-radius: 50px; font-weight: bold; border: none;">
+                    <i class="bi bi-whatsapp"></i> WhatsApp Directo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER PROFESIONAL COMPLETO
+         ============================================ -->
+    <footer class="footer-main">
+        <div class="container">
+            <div class="row">
+                <!-- Columna 1: Información de la empresa -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5><i class="bi bi-palette-fill"></i> Color Grafía</h5>
+                    <p>Somos una empresa especializada en diseño gráfico, personalización textil y publicidad, con más de 10 años de experiencia en el mercado colombiano.</p>
+                    <p><strong><i class="bi bi-person-badge-fill"></i> Propietaria:</strong><br>
+                    Natalia Garrido<br>
+                    <small>Diseñadora Gráfica Profesional</small></p>
+                    
+                    <div class="social-links mt-3">
+                        <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/573237623861" target="_blank" title="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="mailto:natalia@colorgrafia.com" title="Email">
+                            <i class="bi bi-envelope-fill"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Enlaces rápidos -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="footer-link"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+                        <li><a href="servicios.html" class="footer-link"><i class="bi bi-chevron-right"></i> Servicios</a></li>
+                        <li><a href="catalogo.html" class="footer-link"><i class="bi bi-chevron-right"></i> Catálogo</a></li>
+                        <li><a href="galeria.html" class="footer-link"><i class="bi bi-chevron-right"></i> Galería</a></li>
+                        <li><a href="contacto.html" class="footer-link"><i class="bi bi-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Servicios principales -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Nuestros Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Uniformes Corporativos</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Camisas Personalizadas</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Pancartas y Banners</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Diseño de Logos</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Material Publicitario</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Productos Personalizados</li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Información de contacto -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="bi bi-geo-alt-fill"></i> <strong>Dirección:</strong><br>
+                    ARAUCA - ARAUCA, Colombia</p>
+                    
+                    <p><i class="bi bi-telephone-fill"></i> <strong>Teléfono:</strong><br>
+                    <a href="tel:+573237623861" class="footer-link">+57 323 762 3861</a></p>
+                    
+                    <p><i class="bi bi-whatsapp"></i> <strong>WhatsApp:</strong><br>
+                    <a href="https://wa.me/573237623861" class="footer-link" target="_blank">+57 323 762 3861</a></p>
+                    
+                    <p><i class="bi bi-envelope-fill"></i> <strong>Email:</strong><br>
+                    <a href="mailto:natalia@colorgrafia.com" class="footer-link">natalia@colorgrafia.com</a></p>
+                    
+                    <p><i class="bi bi-clock-fill"></i> <strong>Horario:</strong><br>
+                    Lun - Vie: 8:00 AM - 6:00 PM<br>
+                    Sábados: 9:00 AM - 2:00 PM</p>
+                </div>
+            </div>
+
+            <!-- Certificaciones -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h5 class="text-center mb-3">Certificaciones y Garantías</h5>
+                    <div class="text-center">
+                        <span class="certificate-badge"><i class="bi bi-shield-check"></i> Calidad Garantizada</span>
+                        <span class="certificate-badge"><i class="bi bi-award"></i> Certificación en Diseño Gráfico</span>
+                        <span class="certificate-badge"><i class="bi bi-truck"></i> Envíos a Todo Colombia</span>
+                        <span class="certificate-badge"><i class="bi bi-credit-card"></i> Múltiples Métodos de Pago</span>
+                        <span class="certificate-badge"><i class="bi bi-hand-thumbs-up"></i> +1500 Clientes Satisfechos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer inferior -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p class="mb-0">&copy; 2025 Color Grafía. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <a href="#" class="footer-link me-3">Términos y Condiciones</a>
+                        <a href="#" class="footer-link me-3">Política de Privacidad</a>
+                        <a href="#" class="footer-link">Política de Devoluciones</a>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        <p class="mb-0 small">
+                            <i class="bi bi-code-slash"></i> Desarrollado profesionalmente | 
+                            <i class="bi bi-shield-lock"></i> Sitio seguro y protegido |
+                            <i class="bi bi-phone"></i> Soporte técnico disponible
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Animación de entrada al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+
+        // Efecto parallax suave en el header
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.page-header');
+            if (parallax) {
+                parallax.style.transform = 'translateY(' + (scrolled * 0.5) + 'px)';
+            }
+        });
+    </script>
+</body>
+</html>   

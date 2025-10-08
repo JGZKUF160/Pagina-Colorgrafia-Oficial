@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta con Color Grafía - Natalia Garrido en Arauca, Colombia. WhatsApp, email y formulario de contacto.">
+    <title>Contacto - Color Grafía | Solicita tu Cotización</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           VARIABLES DE COLOR
+           ============================================ */
+        :root {
+            --color-primary: #c2185b;
+            --color-secondary: #7b1fa2;
+            --color-accent: #ff4081;
+            --color-dark: #4a148c;
+            --color-light: #f3e5f5;
+        }
+
+        /* ============================================
+           ESTILOS GENERALES
+           ============================================ */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            padding-top: 76px;
+        }
+
+        /* ============================================
+           NAVBAR
+           ============================================ */
+        .navbar-custom {
+            background: rgba(123, 31, 162, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #ffffff !important;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            padding: 8px 20px !important;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ============================================
+           HEADER DE PÁGINA
+           ============================================ */
+        .page-header {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================
+           BOTÓN DE WHATSAPP FLOTANTE
+           ============================================ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.6);
+            z-index: 1000;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #20ba5a;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* ============================================
+           TARJETAS DE CONTACTO
+           ============================================ */
+        .contact-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            height: 100%;
+            border: 3px solid transparent;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(194, 24, 91, 0.25);
+            border-color: var(--color-primary);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .contact-card h4 {
+            color: var(--color-secondary);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .contact-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .contact-link {
+            display: inline-block;
+            color: var(--color-primary);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 25px;
+            border: 2px solid var(--color-primary);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(194, 24, 91, 0.4);
+        }
+
+        /* ============================================
+           FORMULARIO DE CONTACTO
+           ============================================ */
+        .form-section {
+            background: var(--color-light);
+            padding: 80px 0;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--color-secondary);
+            margin-bottom: 8px;
+        }
+
+        .form-control,
+        .form-select {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 0.2rem rgba(194, 24, 91, 0.15);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            border: none;
+            color: white;
+            padding: 15px 50px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(194, 24, 91, 0.4);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(194, 24, 91, 0.6);
+        }
+
+        /* ============================================
+           SECCIÓN DE MAPA
+           ============================================ */
+        .map-section {
+            padding: 0;
+            position: relative;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ============================================
+           HORARIOS Y INFO
+           ============================================ */
+        .info-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .info-box h5 {
+            color: var(--color-secondary);
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box h5 i {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-item i {
+            color: var(--color-primary);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            min-width: 25px;
+        }
+
+        .info-item strong {
+            color: var(--color-secondary);
+            margin-right: 10px;
+        }
+
+        /* ============================================
+           BOTONES DE CONTACTO RÁPIDO
+           ============================================ */
+        .quick-contact-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .quick-contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            color: var(--color-primary);
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+        }
+
+        .quick-contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            color: var(--color-primary);
+        }
+
+        .quick-contact-btn i {
+            font-size: 2rem;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer-main {
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 60px 0 0;
+            margin-top: 80px;
+        }
+
+        .footer-main h5 {
+            color: var(--color-accent);
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .footer-link:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 45px;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--color-accent);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px 0;
+            margin-top: 50px;
+        }
+
+        .certificate-badge {
+            display: inline-block;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           SECCIONES
+           ============================================ */
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+
+            .quick-contact-btn {
+                font-size: 1rem;
+                padding: 15px 25px;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+        }
+
+        /* ============================================
+           ANIMACIONES
+           ============================================ */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Alerta de éxito */
+        .alert-custom {
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         NAVBAR
+         ============================================ -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-palette-fill"></i> Color Grafía
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house-fill"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html"><i class="bi bi-briefcase-fill"></i> Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalogo.html"><i class="bi bi-book-fill"></i> Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html"><i class="bi bi-images"></i> Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contacto.html"><i class="bi bi-envelope-fill"></i> Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         BOTÓN FLOTANTE DE WHATSAPP
+         ============================================ -->
+    <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20quisiera%20obtener%20más%20información%20sobre%20Color%20Grafía" 
+       class="whatsapp-float" 
+       target="_blank"
+       title="Chatea con nosotros">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- ============================================
+         HEADER DE LA PÁGINA
+         ============================================ -->
+    <div class="page-header">
+        <div class="container">
+            <h1><i class="bi bi-envelope-heart-fill"></i> Contáctanos</h1>
+            <p>Estamos aquí para ayudarte con tu proyecto. ¡Escríbenos!</p>
+        </div>
+    </div>
+
+    <!-- ============================================
+         TARJETAS DE CONTACTO RÁPIDO
+         ============================================ -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title fade-in">¿Cómo prefieres contactarnos?</h2>
+            <p class="section-subtitle">Elige el método que más te convenga</p>
+
+            <div class="row g-4 mb-5">
+                <!-- WhatsApp -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-card fade-in">
+                        <div class="contact-icon">
+                            <i class="bi bi-whatsapp"></i>
+                        </div>
+                        <h4>WhatsApp</h4>
+                        <p>Respuesta inmediata a tus consultas y cotizaciones</p>
+                        <p><strong>+57 323 762 3861</strong></p>
+                        <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20quisiera%20obtener%20más%20información" 
+                           class="contact-link" target="_blank">
+                            <i class="bi bi-chat-dots"></i> Chatear Ahora
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Teléfono -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-card fade-in" style="animation-delay: 0.1s;">
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <h4>Teléfono</h4>
+                        <p>Llámanos directamente para una atención personalizada</p>
+                        <p><strong>+57 323 762 3861</strong></p>
+                        <a href="tel:+573237623861" class="contact-link">
+                            <i class="bi bi-telephone"></i> Llamar Ahora
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-card fade-in" style="animation-delay: 0.2s;">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <p>Envíanos un correo y te responderemos pronto</p>
+                        <p><strong>natalia@colorgrafia.com</strong></p>
+                        <a href="mailto:natalia@colorgrafia.com" class="contact-link">
+                            <i class="bi bi-send"></i> Enviar Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FORMULARIO DE CONTACTO
+         ============================================ -->
+    <section class="form-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="form-container fade-in">
+                        <h2 class="section-title">Envíanos un Mensaje</h2>
+                        <p class="section-subtitle">Completa el formulario y nos pondremos en contacto contigo</p>
+
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="nombre" class="form-label">Nombre Completo *</label>
+                                    <input type="text" class="form-control" id="nombre" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="telefono" class="form-label">Teléfono / WhatsApp *</label>
+                                    <input type="tel" class="form-control" id="telefono" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo Electrónico *</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="servicio" class="form-label">Servicio de Interés *</label>
+                                <select class="form-select" id="servicio" required>
+                                    <option value="">Selecciona un servicio...</option>
+                                    <option value="camisetas">Camisetas Personalizadas</option>
+                                    <option value="uniformes">Uniformes Corporativos</option>
+                                    <option value="mugs">Mugs Personalizados</option>
+                                    <option value="llaveros">Llaveros</option>
+                                    <option value="pancartas">Pancartas y Banners</option>
+                                    <option value="logos">Diseño de Logos</option>
+                                    <option value="tarjetas">Tarjetas de Presentación</option>
+                                    <option value="gorras">Gorras Personalizadas</option>
+                                    <option value="cuadros">Cuadros en Canvas</option>
+                                    <option value="otro">Otro servicio</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="mensaje" class="form-label">Mensaje / Detalles de tu Proyecto *</label>
+                                <textarea class="form-control" id="mensaje" rows="5" required 
+                                          placeholder="Cuéntanos sobre tu proyecto, cantidad, fecha de entrega, etc."></textarea>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-submit">
+                                    <i class="bi bi-send-fill"></i> Enviar Mensaje
+                                </button>
+                            </div>
+
+                            <div class="alert alert-success alert-custom" id="successAlert">
+                                <i class="bi bi-check-circle-fill"></i> ¡Mensaje enviado! Te contactaremos pronto.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Información Adicional -->
+                <div class="col-lg-4">
+                    <div class="info-box fade-in">
+                        <h5><i class="bi bi-clock-fill"></i> Horario de Atención</h5>
+                        <div class="info-item">
+                            <i class="bi bi-calendar-week"></i>
+                            <span><strong>Lunes - Viernes:</strong> 8:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-calendar-day"></i>
+                            <span><strong>Sábados:</strong> 9:00 AM - 2:00 PM</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-calendar-x"></i>
+                            <span><strong>Domingos:</strong> Cerrado</span>
+                        </div>
+                    </div>
+
+                    <div class="info-box fade-in">
+                        <h5><i class="bi bi-geo-alt-fill"></i> Ubicación</h5>
+                        <div class="info-item">
+                            <i class="bi bi-pin-map"></i>
+                            <span>ARAUCA - ARAUCA<br>Colombia</span>
+                        </div>
+                    </div>
+
+                    <div class="info-box fade-in">
+                        <h5><i class="bi bi-person-circle"></i> Propietaria</h5>
+                        <div class="info-item">
+                            <i class="bi bi-person-badge"></i>
+                            <span><strong>Natalia Garrido</strong><br>Diseñadora Gráfica Profesional</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACTO RÁPIDO POR WHATSAPP
+         ============================================ -->
+    <section class="quick-contact-section">
+        <div class="container">
+            <h2 class="mb-4" style="font-size: 2.5rem; font-weight: bold;">¿Necesitas una Cotización Rápida?</h2>
+            <p class="mb-5" style="font-size: 1.2rem; opacity: 0.95;">Escríbenos directamente por WhatsApp y te respondemos al instante</p>
+            
+            <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20necesito%20una%20cotización%20para:" 
+               class="quick-contact-btn" target="_blank">
+                <i class="bi bi-whatsapp"></i>
+                <span>Cotizar por WhatsApp</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MAPA DE UBICACIÓN
+         ============================================ -->
+    <section class="map-section">
+        <div class="container py-5">
+            <h2 class="section-title mb-4">Nuestra Ubicación</h2>
+            <div class="map-container">
+                <!-- Mapa de Google Maps - Arauca, Colombia -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127344.36897756743!2d-70.75955555!3d7.0906653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e676c6f4e1e3b71%3A0x52c5c5f2e1e1e1e1!2sArauca%2C%20Colombia!5e0!3m2!1ses!2sco!4v1234567890123!5m2!1ses!2sco" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER PROFESIONAL
+         ============================================ -->
+    <footer class="footer-main">
+        <div class="container">
+            <div class="row">
+                <!-- Columna 1: Información de la empresa -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5><i class="bi bi-palette-fill"></i> Color Grafía</h5>
+                    <p>Somos una empresa especializada en diseño gráfico, personalización textil y publicidad, con más de 10 años de experiencia en el mercado colombiano.</p>
+                    <p><strong><i class="bi bi-person-badge-fill"></i> Propietaria:</strong><br>
+                    Natalia Garrido<br>
+                    <small>Diseñadora Gráfica Profesional</small></p>
+                    
+                    <div class="social-links mt-3">
+                        <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/573237623861" target="_blank" title="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="mailto:natalia@colorgrafia.com" title="Email">
+                            <i class="bi bi-envelope-fill"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Enlaces rápidos -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="footer-link"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+                        <li><a href="servicios.html" class="footer-link"><i class="bi bi-chevron-right"></i> Servicios</a></li>
+                        <li><a href="catalogo.html" class="footer-link"><i class="bi bi-chevron-right"></i> Catálogo</a></li>
+                        <li><a href="galeria.html" class="footer-link"><i class="bi bi-chevron-right"></i> Galería</a></li>
+                        <li><a href="contacto.html" class="footer-link"><i class="bi bi-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Servicios principales -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Nuestros Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Uniformes Corporativos</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Camisas Personalizadas</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Pancartas y Banners</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Diseño de Logos</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Material Publicitario</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Productos Personalizados</li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Información de contacto -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="bi bi-geo-alt-fill"></i> <strong>Dirección:</strong><br>
+                    ARAUCA - ARAUCA, Colombia</p>
+                    
+                    <p><i class="bi bi-telephone-fill"></i> <strong>Teléfono:</strong><br>
+                    <a href="tel:+573237623861" class="footer-link">+57 323 762 3861</a></p>
+                    
+                    <p><i class="bi bi-whatsapp"></i> <strong>WhatsApp:</strong><br>
+                    <a href="https://wa.me/573237623861" class="footer-link" target="_blank">+57 323 762 3861</a></p>
+                    
+                    <p><i class="bi bi-envelope-fill"></i> <strong>Email:</strong><br>
+                    <a href="mailto:natalia@colorgrafia.com" class="footer-link">natalia@colorgrafia.com</a></p>
+                    
+                    <p><i class="bi bi-clock-fill"></i> <strong>Horario:</strong><br>
+                    Lun - Vie: 8:00 AM - 6:00 PM<br>
+                    Sábados: 9:00 AM - 2:00 PM</p>
+                </div>
+            </div>
+
+            <!-- Certificaciones -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h5 class="text-center mb-3">Certificaciones y Garantías</h5>
+                    <div class="text-center">
+                        <span class="certificate-badge"><i class="bi bi-shield-check"></i> Calidad Garantizada</span>
+                        <span class="certificate-badge"><i class="bi bi-award"></i> Certificación en Diseño Gráfico</span>
+                        <span class="certificate-badge"><i class="bi bi-truck"></i> Envíos a Todo Colombia</span>
+                        <span class="certificate-badge"><i class="bi bi-credit-card"></i> Múltiples Métodos de Pago</span>
+                        <span class="certificate-badge"><i class="bi bi-hand-thumbs-up"></i> +1500 Clientes Satisfechos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer inferior -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p class="mb-0">&copy; 2025 Color Grafía. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <a href="#" class="footer-link me-3">Términos y Condiciones</a>
+                        <a href="#" class="footer-link me-3">Política de Privacidad</a>
+                        <a href="#" class="footer-link">Política de Devoluciones</a>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        <p class="mb-0 small">
+                            <i class="bi bi-code-slash"></i> Desarrollado profesionalmente | 
+                            <i class="bi bi-shield-lock"></i> Sitio seguro y protegido |
+                            <i class="bi bi-phone"></i> Soporte técnico disponible
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Manejo del formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener datos del formulario
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const email = document.getElementById('email').value;
+            const servicio = document.getElementById('servicio').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            // Crear mensaje para WhatsApp
+            const mensajeWhatsApp = `
+*Nuevo contacto desde la web*
+
+*Nombre:* ${nombre}
+*Teléfono:* ${telefono}
+*Email:* ${email}
+*Servicio de interés:* ${servicio}
+
+*Mensaje:*
+${mensaje}
+            `.trim();
+            
+            // Codificar el mensaje
+            const mensajeCodificado = encodeURIComponent(mensajeWhatsApp);
+            
+            // Abrir WhatsApp con el mensaje
+            window.open(`https://wa.me/573237623861?text=${mensajeCodificado}`, '_blank');
+            
+            // Mostrar mensaje de éxito
+            const alert = document.getElementById('successAlert');
+            alert.style.display = 'block';
+            
+            // Limpiar formulario
+            document.getElementById('contactForm').reset();
+            
+            // Ocultar mensaje después de 5 segundos
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 5000);
+        });
+
+        // Animación de entrada al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+
+        // Validación de teléfono (solo números)
+        document.getElementById('telefono').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9+]/g, '');
+        });
+    </script>
+</body>
+</html>

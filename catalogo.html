@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo de Color Grafía - Productos personalizados, uniformes, mugs, llaveros y más">
+    <title>Catálogo - Color Grafía | Productos Personalizados</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           VARIABLES DE COLOR
+           ============================================ */
+        :root {
+            --color-primary: #c2185b;
+            --color-secondary: #7b1fa2;
+            --color-accent: #ff4081;
+            --color-dark: #4a148c;
+            --color-light: #f3e5f5;
+        }
+
+        /* ============================================
+           ESTILOS GENERALES
+           ============================================ */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            padding-top: 76px;
+        }
+
+        /* ============================================
+           NAVBAR
+           ============================================ */
+        .navbar-custom {
+            background: rgba(123, 31, 162, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #ffffff !important;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            padding: 8px 20px !important;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ============================================
+           HEADER DE PÁGINA
+           ============================================ */
+        .page-header {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================
+           BOTÓN DE WHATSAPP FLOTANTE
+           ============================================ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.6);
+            z-index: 1000;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #20ba5a;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* ============================================
+           FILTROS DE CATEGORÍAS
+           ============================================ */
+        .filter-section {
+            background: var(--color-light);
+            padding: 40px 0;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(194, 24, 91, 0.3);
+        }
+
+        /* ============================================
+           TARJETAS DE PRODUCTOS
+           ============================================ */
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            height: 100%;
+            border: 3px solid transparent;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(194, 24, 91, 0.25);
+            border-color: var(--color-primary);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        }
+
+        .product-body {
+            padding: 25px;
+        }
+
+        .product-category-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--color-secondary);
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 2px solid var(--color-light);
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-primary);
+        }
+
+        .btn-cotizar {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(194, 24, 91, 0.4);
+        }
+
+        .btn-cotizar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(194, 24, 91, 0.6);
+            color: white;
+        }
+
+        /* ============================================
+           MODAL
+           ============================================ */
+        .modal-header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            border: none;
+        }
+
+        .modal-title {
+            font-weight: bold;
+        }
+
+        .modal-body h5 {
+            color: var(--color-secondary);
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            color: #555;
+        }
+
+        .feature-list li i {
+            color: #28a745;
+            margin-right: 10px;
+        }
+
+        .modal-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            margin: 20px 0;
+        }
+
+        /* ============================================
+           SECCIONES
+           ============================================ */
+        .catalog-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer-main {
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 60px 0 0;
+            margin-top: 80px;
+        }
+
+        .footer-main h5 {
+            color: var(--color-accent);
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .footer-link:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 45px;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--color-accent);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px 0;
+            margin-top: 50px;
+        }
+
+        .certificate-badge {
+            display: inline-block;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .product-card {
+                margin-bottom: 30px;
+            }
+
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+        }
+
+        /* ============================================
+           ANIMACIONES
+           ============================================ */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         NAVBAR
+         ============================================ -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-palette-fill"></i> Color Grafía
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house-fill"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html"><i class="bi bi-briefcase-fill"></i> Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="catalogo.html"><i class="bi bi-book-fill"></i> Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html"><i class="bi bi-images"></i> Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html"><i class="bi bi-envelope-fill"></i> Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         BOTÓN FLOTANTE DE WHATSAPP
+         ============================================ -->
+    <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20quiero%20ver%20el%20catálogo%20de%20productos" 
+       class="whatsapp-float" 
+       target="_blank"
+       title="Consulta por WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- ============================================
+         HEADER DE LA PÁGINA
+         ============================================ -->
+    <div class="page-header">
+        <div class="container">
+            <h1><i class="bi bi-book-fill"></i> Catálogo de Productos</h1>
+            <p>Explora nuestra selección completa de productos personalizados</p>
+        </div>
+    </div>
+
+    <!-- ============================================
+         FILTROS DE CATEGORÍAS
+         ============================================ -->
+    <div class="filter-section">
+        <div class="container">
+            <div class="text-center">
+                <button class="btn filter-btn active" onclick="filterProducts('all')">
+                    <i class="bi bi-grid-fill"></i> Todos
+                </button>
+                <button class="btn filter-btn" onclick="filterProducts('textil')">
+                    <i class="bi bi-dice-5"></i> Textiles
+                </button>
+                <button class="btn filter-btn" onclick="filterProducts('impresion')">
+                    <i class="bi bi-printer"></i> Impresión
+                </button>
+                <button class="btn filter-btn" onclick="filterProducts('promocionales')">
+                    <i class="bi bi-gift"></i> Promocionales
+                </button>
+                <button class="btn filter-btn" onclick="filterProducts('diseno')">
+                    <i class="bi bi-palette"></i> Diseño
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         CATÁLOGO DE PRODUCTOS
+         ============================================ -->
+    <section class="catalog-section">
+        <div class="container">
+            <div class="row g-4" id="productGrid">
+                
+                <!-- Producto 1: Camisetas Personalizadas -->
+                <div class="col-lg-4 col-md-6 product-item" data-category="textil">
+                    <div class="product-card fade-in" data-bs-toggle="modal" data-bs-target="#modal1">
+                        <div class="product-image">
+                            <i class="bi bi-dice-5"></i>
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category-badge">Textil</span>
+                            <h3 class="product-title">Camisetas Personalizadas</h3>
+                            <p class="product-description">Camisetas 100% algodón con estampados HD. Perfectas para eventos y equipos.</p>
+                            <div class="product-footer">
+                                <span class="product-price">Desde $25.000</span>
+                                <button class="btn btn-cotizar">Ver Más</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2: Uniformes Corporativos -->
+                <div class="col-lg-4 col-md-6 product-item" data-category="textil">
+                    <div class="product-card fade-in" data-bs-toggle="modal" data-bs-target="#modal2">
+                        <div class="product-image">
+                            <i class="bi bi-person-badge"></i>
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category-badge">Textil</span>
+                            <h3 class="product-title">Uniformes Corporativos</h3>
+                            <p class="product-description">Uniformes profesionales con bordado incluido para tu empresa.</p>
+                            <div class="product-footer">
+                                <span class="product-price">Cotizar</span>
+                                <button class="btn btn-cotizar">Ver Más</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3: Mugs Personalizados -->
+                <div class="col-lg-4 col-md-6 product-item" data-category="promocionales">
+                    <div class="product-card fade-in" data-bs-toggle="modal" data-bs-target="#modal3">
+                        <div class="product-image">
+                            <i class="bi bi-cup-hot"></i>
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category-badge">Promocionales</span>
+                            <h3 class="product-title">Mugs Personalizados</h3>
+                            <p class="product-description">Tazas de cerámica con sublimación full color.</p>
+                            <div class="product-footer">
+                                <span class="product-price">$8.000 c/u</span>
+                                <button class="btn btn-cotizar">Ver Más</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 4: Llaveros -->
+                <div class="col-lg-4 col-md-6 product-item" data-category="promocionales">
+                    <div class="product-card fade-in" data-bs-toggle="modal" data-bs-target="#modal4">
+                        <div class="product-image">
+                            <i class="bi bi-key"></i>
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category-badge">Promocionales</span>
+                            <h3 class="product-title">Llaveros Personalizados</h3>
+                            <p class="product-description">Llaveros en acrílico sublimado o metal grabado.</p>
+                            <div class="product-footer">
+                                <span class="product-price">Desde $2.500</span>
+                                <button class="btn btn-cotizar">Ver Más</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 5: Pancartas y Banners -->
+                <div class="col-lg-4 col-md-6 product-item" data-category="impresion">
+                    <div class="product-card fade-in" data-bs-toggle="modal" data-bs-target="#modal5">
+                        <div class="product-image">
+                            <i class="bi bi-file-earmark-image"></i>
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category-badge">Impresión</span>
+                            <h3 class="product-title">Pancartas y Banners</h3>
+                            <p class="product-description">Impresión en lona resistente para exterior e interior.</p>
+                            <div class="product-footer">
+                                <span class="product-price">Cotizar</span>
+                                <button class="btn btn-cotizar">Ver Más</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 6: Diseño de Logos -->
+                <div class="col-lg-4 col-md-6 product-item" data-category="diseno">
+                    <div class="product-card fade-in" data-bs-toggle="modal" data-bs-target="#modal6">
+                        <div class="product-image">
+                            <i class="bi bi-brush"></i>
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category-badge">Diseño</span>
+                            <h3 class="product-title">Diseño de Logos</h3>
+                            <p class="product-description">Identidad corporativa única y profesional para tu marca.</p>
+                            <div class="product-footer">
+                                <span class="product-price">Cotizar</span>
+                                <button class="btn btn-cotizar">Ver Más</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 7: Tarjetas de Presentación -->
+                <div class="col-lg-4 col-md-6 product-item" data-category="impresion">
+                    <div class="product-card fade-in" data-bs-toggle="modal" data-bs-target="#modal7">
+                        <div class="product-image">
+                            <i class="bi bi-credit-card"></i>
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category-badge">Impresión</span>
+                            <h3 class="product-title">Tarjetas de Presentación</h3>
+                            <p class="product-description">Tarjetas profesionales con acabados premium.</p>
+                            <div class="product-footer">
+                                <span class="product-price">Desde $30.000</span>
+                                <button class="btn btn-cotizar">Ver Más</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 8: Gorras Personalizadas -->
+                <div class="col-lg-4 col-md-6 product-item" data-category="textil">
+                    <div class="product-card fade-in" data-bs-toggle="modal" data-bs-target="#modal8">
+                        <div class="product-image">
+                            <i class="bi bi-triangle"></i>
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category-badge">Textil</span>
+                            <h3 class="product-title">Gorras Personalizadas</h3>
+                            <p class="product-description">Gorras con bordado 3D y estampados de calidad.</p>
+                            <div class="product-footer">
+                                <span class="product-price">Desde $18.000</span>
+                                <button class="btn btn-cotizar">Ver Más</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 9: Cuadros Personalizados -->
+                <div class="col-lg-4 col-md-6 product-item" data-category="impresion">
+                    <div class="product-card fade-in" data-bs-toggle="modal" data-bs-target="#modal9">
+                        <div class="product-image">
+                            <i class="bi bi-image"></i>
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category-badge">Impresión</span>
+                            <h3 class="product-title">Cuadros en Canvas</h3>
+                            <p class="product-description">Impresión en canvas premium con bastidor incluido.</p>
+                            <div class="product-footer">
+                                <span class="product-price">Desde $35.000</span>
+                                <button class="btn btn-cotizar">Ver Más</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODALES DE PRODUCTOS (EJEMPLOS)
+         ============================================ -->
+    
+    <!-- Modal 1: Camisetas -->
+    <div class="modal fade" id="modal1" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-dice-5"></i> Camisetas Personalizadas</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Uniformes corporativos de alta calidad para empresas, restaurantes, hoteles y más. Diseño profesional que representa tu marca.</p>
+                    
+                    <h5>Características:</h5>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Diseño personalizado según tu marca</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Telas premium de alta durabilidad</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Bordado incluido del logo</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Corte y confección profesional</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Desde pedidos pequeños</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Asesoría en diseño gratuita</li>
+                    </ul>
+
+                    <div class="modal-price">Cotizar según especificaciones</div>
+                    
+                    <div class="text-center">
+                        <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20quiero%20cotizar%20Uniformes%20Corporativos" 
+                           class="btn btn-cotizar btn-lg" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Cotizar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Mugs -->
+    <div class="modal fade" id="modal3" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-cup-hot"></i> Mugs Personalizados</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Tazas personalizadas con sublimación de alta calidad. Perfectas para regalos corporativos o personales.</p>
+                    
+                    <h5>Características:</h5>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Cerámica premium de 11oz</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Sublimación full color</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Diseños personalizados</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Apta para lavavajillas</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Empaque individual opcional</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Colores brillantes y duraderos</li>
+                    </ul>
+
+                    <div class="modal-price">$8.000 c/u (desde 10 unidades)</div>
+                    
+                    <div class="text-center">
+                        <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20quiero%20cotizar%20Mugs%20Personalizados" 
+                           class="btn btn-cotizar btn-lg" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Cotizar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: Llaveros -->
+    <div class="modal fade" id="modal4" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-key"></i> Llaveros Personalizados</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Llaveros personalizados en diversos materiales. Ideales para promoción de marca y regalos corporativos.</p>
+                    
+                    <h5>Características:</h5>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Acrílico transparente 3mm</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Metal grabado láser</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Sublimación doble cara</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Argolla metálica incluida</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Diseños personalizados</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Mínimo 20 unidades</li>
+                    </ul>
+
+                    <div class="modal-price">Desde $2.500 c/u (50 unidades)</div>
+                    
+                    <div class="text-center">
+                        <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20quiero%20cotizar%20Llaveros%20Personalizados" 
+                           class="btn btn-cotizar btn-lg" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Cotizar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5: Pancartas -->
+    <div class="modal fade" id="modal5" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-file-earmark-image"></i> Pancartas y Banners</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Impresión en gran formato con lona resistente. Perfectas para publicidad exterior e interior.</p>
+                    
+                    <h5>Características:</h5>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Lona resistente al agua</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Impresión full color HD</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Todos los tamaños disponibles</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Ojales reforzados incluidos</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Para uso exterior e interior</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Instalación opcional</li>
+                    </ul>
+
+                    <div class="modal-price">Cotizar según tamaño</div>
+                    
+                    <div class="text-center">
+                        <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20quiero%20cotizar%20Pancartas%20y%20Banners" 
+                           class="btn btn-cotizar btn-lg" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Cotizar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6: Diseño de Logos -->
+    <div class="modal fade" id="modal6" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-brush"></i> Diseño de Logos</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Creación de identidad corporativa única y profesional para tu marca o negocio.</p>
+                    
+                    <h5>Incluye:</h5>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> 3 propuestas de diseño</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Revisiones incluidas</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Archivos vectoriales (AI, EPS, SVG)</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Versiones en diferentes formatos</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Manual básico de marca</li>
+                        <li><i class="bi bi-check-circle-fill"></i> 100% original y exclusivo</li>
+                    </ul>
+
+                    <div class="modal-price">Cotizar según complejidad</div>
+                    
+                    <div class="text-center">
+                        <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20quiero%20cotizar%20Diseño%20de%20Logo" 
+                           class="btn btn-cotizar btn-lg" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Cotizar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 7: Tarjetas -->
+    <div class="modal fade" id="modal7" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-credit-card"></i> Tarjetas de Presentación</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Tarjetas de presentación profesionales con acabados premium que causan una excelente primera impresión.</p>
+                    
+                    <h5>Características:</h5>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Papel couché 300gr</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Impresión full color</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Plastificado mate o brillante</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Tamaño estándar 9x5 cm</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Opciones: relieve, hot stamping</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Esquinas redondeadas disponibles</li>
+                    </ul>
+
+                    <div class="modal-price">Desde $30.000 (100 unidades)</div>
+                    
+                    <div class="text-center">
+                        <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20quiero%20cotizar%20Tarjetas%20de%20Presentación" 
+                           class="btn btn-cotizar btn-lg" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Cotizar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 8: Gorras -->
+    <div class="modal fade" id="modal8" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-triangle"></i> Gorras Personalizadas</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Gorras con bordado de alta calidad o estampados. Ideales para promoción de marca y uniformes.</p>
+                    
+                    <h5>Características:</h5>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Gorras tipo trucker o completas</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Bordado directo en 3D</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Varios colores disponibles</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Ajuste personalizado</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Diseño de tu logo incluido</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Mínimo 12 unidades</li>
+                    </ul>
+
+                    <div class="modal-price">Desde $18.000 c/u</div>
+                    
+                    <div class="text-center">
+                        <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20quiero%20cotizar%20Gorras%20Personalizadas" 
+                           class="btn btn-cotizar btn-lg" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Cotizar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 9: Cuadros -->
+    <div class="modal fade" id="modal9" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-image"></i> Cuadros en Canvas</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Cuadros sublimados en canvas de alta calidad. Perfectos para decoración de hogares y oficinas.</p>
+                    
+                    <h5>Características:</h5>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Canvas premium</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Sublimación alta definición</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Marco de madera incluido</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Tamaños: 20x30, 30x40, 40x60 cm</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Diseño personalizado</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Fotos o ilustraciones</li>
+                    </ul>
+
+                    <div class="modal-price">Desde $35.000 según tamaño</div>
+                    
+                    <div class="text-center">
+                        <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20quiero%20cotizar%20Cuadros%20en%20Canvas" 
+                           class="btn btn-cotizar btn-lg" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Cotizar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         FOOTER PROFESIONAL
+         ============================================ -->
+    <footer class="footer-main">
+        <div class="container">
+            <div class="row">
+                <!-- Columna 1: Información de la empresa -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5><i class="bi bi-palette-fill"></i> Color Grafía</h5>
+                    <p>Somos una empresa especializada en diseño gráfico, personalización textil y publicidad, con más de 10 años de experiencia en el mercado colombiano.</p>
+                    <p><strong><i class="bi bi-person-badge-fill"></i> Propietaria:</strong><br>
+                    Natalia Garrido<br>
+                    <small>Diseñadora Gráfica Profesional</small></p>
+                    
+                    <div class="social-links mt-3">
+                        <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/573237623861" target="_blank" title="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="mailto:natalia@colorgrafia.com" title="Email">
+                            <i class="bi bi-envelope-fill"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Enlaces rápidos -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="footer-link"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+                        <li><a href="servicios.html" class="footer-link"><i class="bi bi-chevron-right"></i> Servicios</a></li>
+                        <li><a href="catalogo.html" class="footer-link"><i class="bi bi-chevron-right"></i> Catálogo</a></li>
+                        <li><a href="galeria.html" class="footer-link"><i class="bi bi-chevron-right"></i> Galería</a></li>
+                        <li><a href="contacto.html" class="footer-link"><i class="bi bi-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Servicios principales -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Nuestros Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Uniformes Corporativos</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Camisas Personalizadas</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Pancartas y Banners</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Diseño de Logos</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Material Publicitario</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Productos Personalizados</li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Información de contacto -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="bi bi-geo-alt-fill"></i> <strong>Dirección:</strong><br>
+                    ARAUCA - ARAUCA, Colombia</p>
+                    
+                    <p><i class="bi bi-telephone-fill"></i> <strong>Teléfono:</strong><br>
+                    <a href="tel:+573237623861" class="footer-link">+57 323 762 3861</a></p>
+                    
+                    <p><i class="bi bi-whatsapp"></i> <strong>WhatsApp:</strong><br>
+                    <a href="https://wa.me/573237623861" class="footer-link" target="_blank">+57 323 762 3861</a></p>
+                    
+                    <p><i class="bi bi-envelope-fill"></i> <strong>Email:</strong><br>
+                    <a href="mailto:natalia@colorgrafia.com" class="footer-link">natalia@colorgrafia.com</a></p>
+                    
+                    <p><i class="bi bi-clock-fill"></i> <strong>Horario:</strong><br>
+                    Lun - Vie: 8:00 AM - 6:00 PM<br>
+                    Sábados: 9:00 AM - 2:00 PM</p>
+                </div>
+            </div>
+
+            <!-- Certificaciones -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h5 class="text-center mb-3">Certificaciones y Garantías</h5>
+                    <div class="text-center">
+                        <span class="certificate-badge"><i class="bi bi-shield-check"></i> Calidad Garantizada</span>
+                        <span class="certificate-badge"><i class="bi bi-award"></i> Certificación en Diseño Gráfico</span>
+                        <span class="certificate-badge"><i class="bi bi-truck"></i> Envíos a Todo Colombia</span>
+                        <span class="certificate-badge"><i class="bi bi-credit-card"></i> Múltiples Métodos de Pago</span>
+                        <span class="certificate-badge"><i class="bi bi-hand-thumbs-up"></i> +1500 Clientes Satisfechos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer inferior -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p class="mb-0">&copy; 2025 Color Grafía. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <a href="#" class="footer-link me-3">Términos y Condiciones</a>
+                        <a href="#" class="footer-link me-3">Política de Privacidad</a>
+                        <a href="#" class="footer-link">Política de Devoluciones</a>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        <p class="mb-0 small">
+                            <i class="bi bi-code-slash"></i> Desarrollado profesionalmente | 
+                            <i class="bi bi-shield-lock"></i> Sitio seguro y protegido |
+                            <i class="bi bi-phone"></i> Soporte técnico disponible
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Función de filtrado de productos
+        function filterProducts(category) {
+            const items = document.querySelectorAll('.product-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Actualizar botones activos
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filtrar productos
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Animación de entrada al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Camisetas 100% algodón premium con estampados en alta definición. Ideales para eventos, equipos deportivos, empresas y más.</p>
+                    
+                    <h5>Características:</h5>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Algodón 100% de primera calidad</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Estampado HD con tecnología de punta</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Todas las tallas: XS, S, M, L, XL, XXL</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Variedad de colores disponibles</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Sin mínimo de pedido</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Diseño personalizado incluido</li>
+                    </ul>
+
+                    <h5>Técnicas de Impresión:</h5>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Serigrafía</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Sublimación</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Vinil textil</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Transfer digital</li>
+                    </ul>
+
+                    <div class="modal-price">Desde $25.000 c/u</div>
+                    
+                    <div class="text-center">
+                        <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20quiero%20cotizar%20Camisetas%20Personalizadas" 
+                           class="btn btn-cotizar btn-lg" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Cotizar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Uniformes -->
+    <div class="modal fade" id="modal2" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-person-badge"></i> Uniformes Corporativos</h5>
+                    <button type="button" class="btn-close btn-close-white

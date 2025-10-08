@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Color Grafía - Diseño de uniformes, camisas personalizadas, posters y publicidad en Bogotá">
+    <meta name="keywords" content="uniformes, camisas personalizadas, diseño gráfico, publicidad, Bogotá">
+    <title>Color Grafía - Diseño de Uniformes y Publicidad | Natalia Garrido</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           VARIABLES DE COLOR - Fácil de modificar
+           ============================================ */
+        :root {
+            --color-primary: #c2185b;
+            --color-secondary: #7b1fa2;
+            --color-accent: #ff4081;
+            --color-dark: #4a148c;
+            --color-light: #f3e5f5;
+        }
+
+        /* ============================================
+           ESTILOS GENERALES
+           ============================================ */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            padding: 80px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--color-secondary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* ============================================
+           NAVBAR - Menú de navegación
+           ============================================ */
+        .navbar-custom {
+            background: rgba(123, 31, 162, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #ffffff !important;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            padding: 8px 20px !important;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .nav-link:hover {
+            color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ============================================
+           SECCIÓN PRINCIPAL - HOME
+           ============================================ */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 50%, var(--color-accent) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .circle-decoration {
+            position: absolute;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .hero-logo {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-logo:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* ============================================
+           BOTONES PRINCIPALES DE NAVEGACIÓN
+           ============================================ */
+        .nav-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            height: 100%;
+            text-decoration: none;
+            display: block;
+            border: 3px solid transparent;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(194, 24, 91, 0.3);
+            border-color: var(--color-primary);
+        }
+
+        .nav-card-icon {
+            font-size: 5rem;
+            color: var(--color-primary);
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .nav-card:hover .nav-card-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .nav-card h3 {
+            color: var(--color-secondary);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .nav-card p {
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* ============================================
+           BOTÓN DE WHATSAPP FLOTANTE
+           ============================================ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.6);
+            z-index: 1000;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #20ba5a;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* ============================================
+           SECCIÓN DE INFORMACIÓN
+           ============================================ */
+        .info-section {
+            background: white;
+        }
+
+        .info-box {
+            background: var(--color-light);
+            padding: 40px;
+            border-radius: 15px;
+            border-left: 5px solid var(--color-primary);
+            margin-bottom: 30px;
+        }
+
+        .info-box h4 {
+            color: var(--color-secondary);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item i {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-right: 20px;
+            min-width: 50px;
+        }
+
+        /* ============================================
+           FOOTER PROFESIONAL
+           ============================================ */
+        .footer-main {
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 60px 0 0;
+        }
+
+        .footer-main h5 {
+            color: var(--color-accent);
+            font-weight: bold;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .footer-main p,
+        .footer-main li {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .footer-link:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 45px;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--color-accent);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px 0;
+            margin-top: 50px;
+        }
+
+        .certificate-badge {
+            display: inline-block;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .hero-logo {
+                width: 250px;
+                height: 250px;
+            }
+
+            .nav-card {
+                margin-bottom: 20px;
+            }
+
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 50px 0;
+                min-height: auto;
+            }
+        }
+
+        /* Animación */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         NAVBAR - Menú de navegación
+         ============================================ -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-palette-fill"></i> Color Grafía
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html"><i class="bi bi-house-fill"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html"><i class="bi bi-briefcase-fill"></i> Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalogo.html"><i class="bi bi-book-fill"></i> Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html"><i class="bi bi-images"></i> Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html"><i class="bi bi-envelope-fill"></i> Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         BOTÓN FLOTANTE DE WHATSAPP
+         CAMBIAR NÚMERO AQUÍ: 573237623861
+         ============================================ -->
+    <a href="https://wa.me/573237623861?text=Hola%20Natalia,%20me%20interesa%20conocer%20más%20sobre%20los%20servicios%20de%20Color%20Grafía" 
+       class="whatsapp-float" 
+       target="_blank"
+       title="Chatea con nosotros por WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- ============================================
+         SECCIÓN PRINCIPAL - HERO
+         ============================================ -->
+    <section class="hero-section">
+        <!-- Círculos decorativos -->
+        <div class="circle-decoration" style="width: 80px; height: 80px; top: 15%; left: 8%;"></div>
+        <div class="circle-decoration" style="width: 40px; height: 40px; top: 12%; left: 35%; animation-delay: 1s;"></div>
+        <div class="circle-decoration" style="width: 15px; height: 15px; top: 8%; right: 8%; background: white;"></div>
+        <div class="circle-decoration" style="width: 50px; height: 50px; top: 20%; right: 15%; animation-delay: 2s;"></div>
+        <div class="circle-decoration" style="width: 60px; height: 60px; bottom: 25%; left: 15%; animation-delay: 3s;"></div>
+        <div class="circle-decoration" style="width: 90px; height: 90px; bottom: 30%; right: 5%; animation-delay: 1.5s;"></div>
+
+        <div class="container text-center text-white">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <!-- Logo - Guardar como logo.png en la misma carpeta -->
+                    <img src="logo.png" alt="Color Grafía Logo" class="hero-logo mb-4" 
+                         onerror="this.src='https://via.placeholder.com/350/c2185b/ffffff?text=Color+Grafia'">
+                    
+                    <h1 class="display-3 fw-bold mb-3">Color Grafía</h1>
+                    <p class="lead mb-4">Especialistas en Diseño Gráfico y Personalización Textil</p>
+                    <p class="fs-5 mb-5">
+                        <i class="bi bi-person-heart"></i> <strong>Propietaria: Natalia Garrido</strong><br>
+                        <small>Más de 10 años creando diseños únicos en Bogotá, Colombia</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN DE NAVEGACIÓN CON TARJETAS
+         Estas tarjetas redirigen a páginas específicas
+         ============================================ -->
+    <section class="info-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title fade-in">¿Qué estás buscando?</h2>
+                    <p class="lead text-muted">Selecciona una opción para explorar nuestros productos y servicios</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Tarjeta: Servicios -->
+                <div class="col-lg-3 col-md-6">
+                    <a href="servicios.html" class="nav-card fade-in">
+                        <i class="bi bi-briefcase-fill nav-card-icon"></i>
+                        <h3>Servicios</h3>
+                        <p>Conoce todos nuestros servicios de diseño y personalización</p>
+                    </a>
+                </div>
+
+                <!-- Tarjeta: Catálogo -->
+                <div class="col-lg-3 col-md-6">
+                    <a href="catalogo.html" class="nav-card fade-in" style="animation-delay: 0.1s;">
+                        <i class="bi bi-book-fill nav-card-icon"></i>
+                        <h3>Catálogo</h3>
+                        <p>Explora nuestro catálogo completo de productos disponibles</p>
+                    </a>
+                </div>
+
+                <!-- Tarjeta: Galería -->
+                <div class="col-lg-3 col-md-6">
+                    <a href="galeria.html" class="nav-card fade-in" style="animation-delay: 0.2s;">
+                        <i class="bi bi-images nav-card-icon"></i>
+                        <h3>Galería</h3>
+                        <p>Mira nuestros trabajos realizados y diseños anteriores</p>
+                    </a>
+                </div>
+
+                <!-- Tarjeta: Contacto -->
+                <div class="col-lg-3 col-md-6">
+                    <a href="contacto.html" class="nav-card fade-in" style="animation-delay: 0.3s;">
+                        <i class="bi bi-envelope-fill nav-card-icon"></i>
+                        <h3>Contacto</h3>
+                        <p>Solicita tu cotización o ponte en contacto con nosotros</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Información adicional -->
+            <div class="row mt-5 pt-5">
+                <div class="col-lg-6 mb-4">
+                    <div class="info-box fade-in">
+                        <h4><i class="bi bi-star-fill"></i> ¿Por qué elegirnos?</h4>
+                        <p>En Color Grafía nos especializamos en crear diseños únicos que representan la identidad de tu marca o evento. Trabajamos con los mejores materiales y tecnología de impresión para garantizar resultados de alta calidad.</p>
+                    </div>
+
+                    <div class="feature-item fade-in">
+                        <i class="bi bi-award-fill"></i>
+                        <div>
+                            <h5 class="mb-2">Calidad Garantizada</h5>
+                            <p class="mb-0 text-muted">Utilizamos materiales premium y técnicas profesionales de impresión</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item fade-in">
+                        <i class="bi bi-lightning-fill"></i>
+                        <div>
+                            <h5 class="mb-2">Entrega Rápida</h5>
+                            <p class="mb-0 text-muted">Cumplimos con los tiempos establecidos sin comprometer la calidad</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                    <div class="info-box fade-in">
+                        <h4><i class="bi bi-lightbulb-fill"></i> Nuestra Especialidad</h4>
+                        <p>Nos dedicamos a transformar tus ideas en realidad con diseños profesionales y personalizados para:</p>
+                    </div>
+
+                    <div class="feature-item fade-in">
+                        <i class="bi bi-people-fill"></i>
+                        <div>
+                            <h5 class="mb-2">Empresas</h5>
+                            <p class="mb-0 text-muted">Uniformes corporativos, material publicitario y branding</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item fade-in">
+                        <i class="bi bi-calendar-event-fill"></i>
+                        <div>
+                            <h5 class="mb-2">Eventos</h5>
+                            <p class="mb-0 text-muted">Camisas personalizadas, invitaciones y decoración</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER PROFESIONAL COMPLETO
+         ============================================ -->
+    <footer class="footer-main">
+        <div class="container">
+            <div class="row">
+                <!-- Columna 1: Información de la empresa -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5><i class="bi bi-palette-fill"></i> Color Grafía</h5>
+                    <p>Somos una empresa especializada en diseño gráfico, personalización textil y publicidad, con más de 10 años de experiencia en el mercado colombiano.</p>
+                    <p><strong><i class="bi bi-person-badge-fill"></i> Propietaria:</strong><br>
+                    Natalia Garrido<br>
+                    <small>Diseñadora Gráfica Profesional</small></p>
+                    
+                    <div class="social-links mt-3">
+                        <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/573237623861" target="_blank" title="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="mailto:natalia@colorgrafia.com" title="Email">
+                            <i class="bi bi-envelope-fill"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Enlaces rápidos -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="footer-link"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+                        <li><a href="servicios.html" class="footer-link"><i class="bi bi-chevron-right"></i> Servicios</a></li>
+                        <li><a href="catalogo.html" class="footer-link"><i class="bi bi-chevron-right"></i> Catálogo</a></li>
+                        <li><a href="galeria.html" class="footer-link"><i class="bi bi-chevron-right"></i> Galería</a></li>
+                        <li><a href="contacto.html" class="footer-link"><i class="bi bi-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Servicios principales -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Nuestros Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Uniformes Corporativos</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Camisas Personalizadas</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Pancartas y Banners</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Diseño de Logos</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Material Publicitario</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Productos Personalizados</li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Información de contacto -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="bi bi-geo-alt-fill"></i> <strong>Dirección:</strong><br>
+                    ARAUCA - ARAUCA, Colombia</p>
+                    
+                    <p><i class="bi bi-telephone-fill"></i> <strong>Teléfono:</strong><br>
+                    <a href="tel:+573237623861" class="footer-link">+57 323 762 3861</a></p>
+                    
+                    <p><i class="bi bi-whatsapp"></i> <strong>WhatsApp:</strong><br>
+                    <a href="https://wa.me/573237623861" class="footer-link" target="_blank">+57 323 762 3861</a></p>
+                    
+                    <p><i class="bi bi-envelope-fill"></i> <strong>Email:</strong><br>
+                    <a href="mailto:natalia@colorgrafia.com" class="footer-link">natalia@colorgrafia.com</a></p>
+                    
+                    <p><i class="bi bi-clock-fill"></i> <strong>Horario:</strong><br>
+                    Lun - Vie: 8:00 AM - 6:00 PM<br>
+                    Sábados: 9:00 AM - 2:00 PM</p>
+                </div>
+            </div>
+
+            <!-- Certificaciones y reconocimientos -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h5 class="text-center mb-3">Certificaciones y Garantías</h5>
+                    <div class="text-center">
+                        <span class="certificate-badge"><i class="bi bi-shield-check"></i> Calidad Garantizada</span>
+                        <span class="certificate-badge"><i class="bi bi-award"></i> Certificación en Diseño Gráfico</span>
+                        <span class="certificate-badge"><i class="bi bi-truck"></i> Envíos a Todo Colombia</span>
+                        <span class="certificate-badge"><i class="bi bi-credit-card"></i> Múltiples Métodos de Pago</span>
+                        <span class="certificate-badge"><i class="bi bi-hand-thumbs-up"></i> +1500 Clientes Satisfechos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer inferior con información legal -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p class="mb-0">&copy; 2025 Color Grafía. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <a href="#" class="footer-link me-3">Términos y Condiciones</a>
+                        <a href="#" class="footer-link me-3">Política de Privacidad</a>
+                        <a href="#" class="footer-link">Política de Devoluciones</a>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        <p class="mb-0 small">
+                            <i class="bi bi-code-slash"></i> Desarrollado profesionalmente | 
+                            <i class="bi bi-shield-lock"></i> Sitio seguro y protegido |
+                            <i class="bi bi-phone"></i> Soporte técnico disponible
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Efecto de scroll en el navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNav');
+            if (navbar) {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Animación de entrada al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
